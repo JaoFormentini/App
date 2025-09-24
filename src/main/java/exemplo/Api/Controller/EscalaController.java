@@ -42,4 +42,6 @@ public class EscalaController {
 
         return ResponseEntity.status(HttpStatus.CREATED).body("Escala Inserida com Sucesso!");
     }
+
+    //teste
 }
