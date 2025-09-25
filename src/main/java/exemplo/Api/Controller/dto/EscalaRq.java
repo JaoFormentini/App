@@ -2,6 +2,7 @@ package exemplo.Api.Controller.dto;
 
 public class EscalaRq {
     private int id;
+    private int id_medico;
     private String nome;
     private String especialidade;
     private String dia;
@@ -14,6 +15,14 @@ public class EscalaRq {
 
     public void setId(int id){
         this.id = id;
+    }
+
+    public int getId_medico(){
+        return  id_medico;
+    }
+
+    public void setId_medico(int id_medico){
+        this.id_medico = id_medico;
     }
 
     public String getNome() {

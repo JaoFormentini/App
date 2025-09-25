@@ -32,6 +32,8 @@ public class EscalaController {
 @PostMapping
     public ResponseEntity<String> SaveEscala(@RequestBody EscalaRq escala){
         var esc = new Escala();
+        esc.setId(escala.getId());
+        esc.setId_medico(escala.getId_medico());
         esc.setNome(escala.getNome());
         esc.setEspecialidade(escala.getEspecialidade());
         esc.setDia(escala.getDia());

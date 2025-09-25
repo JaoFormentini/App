@@ -13,6 +13,9 @@ public class Escala {
     @Column(name = "id")
     private int id;
 
+    @Column(name = "id_medico")
+    private int id_medico;
+
     @Column(name = "nome")
     private String nome;
 
@@ -34,6 +37,14 @@ public class Escala {
 
     public void setId(int id) {
         this.id = id;
+    }
+
+    public int getId_medico() {
+        return id_medico;
+    }
+
+    public void setId_medico(int id_medico) {
+        this.id_medico = id_medico;
     }
 
     public String getHorafim() {

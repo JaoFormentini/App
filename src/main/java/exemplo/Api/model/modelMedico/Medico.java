@@ -14,9 +14,6 @@ public class Medico {
     @Column(name = "id")
     private Long id;
 
-    @Column(name = "id_escala")
-    private Long id_escala;
-
     @Column(name = "nome")
     private String nome;
 
@@ -41,14 +38,6 @@ public class Medico {
 
     public void setNome(String nome) {
         this.nome = nome;
-    }
-
-    public Long getId_escala() {
-        return id_escala;
-    }
-
-    public void setId_escala(Long id_escala) {
-        this.id_escala = id_escala;
     }
 
     public String getCrm() {
