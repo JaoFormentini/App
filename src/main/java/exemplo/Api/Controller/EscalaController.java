@@ -7,6 +7,7 @@ import exemplo.Api.repository.repositoryEscala.escalaRepository;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.server.ResponseStatusException;
 
 import java.util.List;
 import java.util.stream.Collectors;
@@ -28,6 +29,19 @@ public class EscalaController {
         var escala = repositoryEscala.findAll();
         return escala.stream().map(EscalaRs::converter).collect(Collectors.toList());
     }
+
+@GetMapping("/escala/{id}")
+public EscalaRs findById(@PathVariable("id") Long id){
+        var esc = repositoryEscala.findById(id);
+
+    if (esc.isPresent()) {
+        var escala = esc.get();
+        return EscalaRs.converter(escala);
+    } else {
+        throw new ResponseStatusException(HttpStatus.NOT_FOUND, "Escala não encontrada");
+    }
+
+}
 
 @PostMapping
     public ResponseEntity<String> SaveEscala(@RequestBody EscalaRq escala){

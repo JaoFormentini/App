@@ -3,8 +3,8 @@ package exemplo.Api.Controller.dto;
 import exemplo.Api.model.modelEscala.Escala;
 
 public class EscalaRs {
-        private int id;
-        private int id_medico;
+        private Long id;
+        private Long id_medico;
         private String nome;
         private String especialidade;
         private String dia;
@@ -25,19 +25,19 @@ public class EscalaRs {
 
         }
 
-        public int getId(){
+        public Long getId(){
         return id;
     }
 
-        public void setId(int id) {
+        public void setId(Long id) {
             this.id = id;
         }
 
-        public int getId_medico() {
+        public Long getId_medico() {
             return id_medico;
         }
 
-        public void setId_medico(int id_medico) {
+        public void setId_medico(Long id_medico) {
             this.id_medico = id_medico;
         }
 

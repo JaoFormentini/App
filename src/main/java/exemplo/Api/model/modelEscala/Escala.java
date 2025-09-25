@@ -11,10 +11,10 @@ public class Escala {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
-    private int id;
+    private Long id;
 
     @Column(name = "id_medico")
-    private int id_medico;
+    private Long id_medico;
 
     @Column(name = "nome")
     private String nome;
@@ -31,19 +31,19 @@ public class Escala {
     @Column(name = "horafim")
     private String horafim;
 
-    public int getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(Long id) {
         this.id = id;
     }
 
-    public int getId_medico() {
+    public Long getId_medico() {
         return id_medico;
     }
 
-    public void setId_medico(int id_medico) {
+    public void setId_medico(Long id_medico) {
         this.id_medico = id_medico;
     }
 

@@ -1,27 +1,27 @@
 package exemplo.Api.Controller.dto;
 
 public class EscalaRq {
-    private int id;
-    private int id_medico;
+    private Long id;
+    private Long id_medico;
     private String nome;
     private String especialidade;
     private String dia;
     private String horainic;
     private String horafim;
 
-    public int getId(){
+    public Long getId(){
         return  id;
     }
 
-    public void setId(int id){
+    public void setId(Long id){
         this.id = id;
     }
 
-    public int getId_medico(){
+    public Long getId_medico(){
         return  id_medico;
     }
 
-    public void setId_medico(int id_medico){
+    public void setId_medico(Long id_medico){
         this.id_medico = id_medico;
     }
 
