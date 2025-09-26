@@ -1,4 +1,4 @@
-package exemplo.Api.Controller.dto;
+package exemplo.Api.Controller.ControllerEscala.dto;
 
 import exemplo.Api.model.modelEscala.Escala;
 
@@ -22,7 +22,6 @@ public class EscalaRs {
             escala.setHorafim(e.getHorafim());
 
             return escala;
-
         }
 
         public Long getId(){

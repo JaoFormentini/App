@@ -1,7 +1,7 @@
-package exemplo.Api.Controller;
+package exemplo.Api.Controller.ControllerEscala;
 
-import exemplo.Api.Controller.dto.EscalaRq;
-import exemplo.Api.Controller.dto.EscalaRs;
+import exemplo.Api.Controller.ControllerEscala.dto.EscalaRq;
+import exemplo.Api.Controller.ControllerEscala.dto.EscalaRs;
 import exemplo.Api.model.modelEscala.Escala;
 import exemplo.Api.repository.repositoryEscala.escalaRepository;
 import org.springframework.http.HttpStatus;

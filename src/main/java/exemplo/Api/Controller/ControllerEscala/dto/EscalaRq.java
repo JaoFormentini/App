@@ -1,4 +1,4 @@
-package exemplo.Api.Controller.dto;
+package exemplo.Api.Controller.ControllerEscala.dto;
 
 public class EscalaRq {
     private Long id;
