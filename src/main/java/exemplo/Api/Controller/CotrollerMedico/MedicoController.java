@@ -1,8 +1,7 @@
-package exemplo.Api.Controller.dtoMedico;
+package exemplo.Api.Controller.CotrollerMedico;
 
 
-import exemplo.Api.Controller.ControllerEscala.EscalaController;
-import exemplo.Api.Controller.dtoMedico.dto.MedicoRs;
+import exemplo.Api.Controller.CotrollerMedico.dto.MedicoRs;
 import exemplo.Api.repository.repositoryMedico.medicoRepository;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;

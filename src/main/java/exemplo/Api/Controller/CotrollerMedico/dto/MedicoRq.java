@@ -1,4 +1,4 @@
-package exemplo.Api.Controller.dtoMedico.dto;
+package exemplo.Api.Controller.CotrollerMedico.dto;
 
 public class MedicoRq {
     private Long id;
