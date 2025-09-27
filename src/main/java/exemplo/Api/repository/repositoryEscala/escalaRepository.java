@@ -7,6 +7,6 @@ import java.util.List;
 
 @Repository
 public interface escalaRepository extends JpaRepository<Escala, Long> {
-    List<Escala> findByid(int id);
+    List<Escala> findById(int id);
 }
 

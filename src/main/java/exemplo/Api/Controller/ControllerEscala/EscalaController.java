@@ -9,6 +9,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.server.ResponseStatusException;
 
+import java.net.http.HttpResponse;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -46,7 +47,7 @@ public EscalaRs findById(@PathVariable("id") Long id){
 @PostMapping
     public ResponseEntity<String> SaveEscala(@RequestBody EscalaRq escala){
         var esc = new Escala();
-        esc.setId(escala.getId());
+
         esc.setId_medico(escala.getId_medico());
         esc.setNome(escala.getNome());
         esc.setEspecialidade(escala.getEspecialidade());
@@ -55,7 +56,6 @@ public EscalaRs findById(@PathVariable("id") Long id){
         esc.setHorafim(escala.getHorafim());
 
         repositoryEscala.save(esc);
-
         return ResponseEntity.status(HttpStatus.CREATED).body("Escala Inserida com Sucesso!");
     }
 }

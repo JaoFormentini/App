@@ -2,9 +2,12 @@ package exemplo.Api.repository.repositoryMedico;
 
 import exemplo.Api.model.modelMedico.Medico;
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.stereotype.Repository;
 
 import java.util.List;
+import java.util.Optional;
 
+@Repository
 public interface medicoRepository extends JpaRepository<Medico, Long> {
-    List<Medico> findBycrm (String crm);
+    Optional<Medico> findBycrm (String crm);
 }
