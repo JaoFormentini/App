@@ -24,7 +24,6 @@ public class EscalaController {
         this.repositoryEscala = repositoryEscala;
     }
 
-
 @GetMapping("/allescalas")
     public List<EscalaRs> findAll(){
         var escala = repositoryEscala.findAll();
@@ -39,12 +38,12 @@ public EscalaRs findById(@PathVariable("id") Long id){
         var escala = esc.get();
         return EscalaRs.converter(escala);
     } else {
+        //            CORRIGIR ERRO DE NAO LANÇAR O ERRO QUANDO NAO ENCONTRA A ESCALA
         throw new ResponseStatusException(HttpStatus.NOT_FOUND, "Escala não encontrada");
     }
-
 }
 
-@PostMapping
+@PostMapping("/escala/post")
     public ResponseEntity<String> SaveEscala(@RequestBody EscalaRq escala){
         var esc = new Escala();
 
@@ -57,5 +56,40 @@ public EscalaRs findById(@PathVariable("id") Long id){
 
         repositoryEscala.save(esc);
         return ResponseEntity.status(HttpStatus.CREATED).body("Escala Inserida com Sucesso!");
+    }
+
+@PutMapping("/escala/{id}")
+    public ResponseEntity<String> updateEsc(@PathVariable("id") Long id, @RequestBody EscalaRq Escala) throws Exception{
+    var esc = repositoryEscala.findById(id);
+
+    if (esc.isPresent()) {
+        var escalaUpdate = esc.get();
+
+        escalaUpdate.setId_medico(Escala.getId_medico());
+        escalaUpdate.setNome(Escala.getNome());
+        escalaUpdate.setEspecialidade(Escala.getEspecialidade());
+        escalaUpdate.setDia(Escala.getDia());
+        escalaUpdate.setHorainic(Escala.getHorainic());
+        escalaUpdate.setHorafim(Escala.getHorafim());
+
+        repositoryEscala.save(escalaUpdate);
+        return ResponseEntity.ok("Escala Atualizada");
+    } else {
+        return ResponseEntity.ok("Não possui nenhuma escala com este id.");
+    }
+}
+
+@DeleteMapping("/escala/{id}")
+    public ResponseEntity<String> deleteEsc(@PathVariable Long id) {
+
+        var esc = repositoryEscala.findById(id);
+
+        if(esc.isPresent()) {
+            repositoryEscala.deleteById(id);
+            return ResponseEntity.ok("Escala deletada com sucesso!");
+        }
+        else {
+            return ResponseEntity.ok("Nao foi possivel deletar, Escala nao encontrada");
+        }
     }
 }
