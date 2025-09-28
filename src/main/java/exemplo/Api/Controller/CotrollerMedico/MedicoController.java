@@ -1,12 +1,9 @@
 package exemplo.Api.Controller.CotrollerMedico;
 
 
-import exemplo.Api.Controller.ControllerEscala.dto.EscalaRq;
-import exemplo.Api.Controller.ControllerEscala.dto.EscalaRs;
 import exemplo.Api.Controller.CotrollerMedico.dto.MedicoRq;
 import exemplo.Api.Controller.CotrollerMedico.dto.MedicoRs;
 import exemplo.Api.Service.MedicoService;
-import exemplo.Api.model.modelEscala.Escala;
 import exemplo.Api.model.modelMedico.Medico;
 import exemplo.Api.repository.repositoryMedico.medicoRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -28,7 +25,7 @@ public class MedicoController {
         this.repositoryMedico = repositoryMedico;
     }
 
-    @GetMapping("/allmedico")
+    @GetMapping("/allmedicos")
     public List<MedicoRs> findAll() {
         var medico = repositoryMedico.findAll();
         return medico.stream().map(MedicoRs::converter).collect(Collectors.toList());
@@ -67,14 +64,14 @@ public class MedicoController {
             var medUpdate = med.get();
 
             medUpdate.setNome(Medico.getNome());
-            medUpdate.setNome(Medico.getCrm());
+            medUpdate.setCrm(Medico.getCrm());
             medUpdate.setEspecialidade(Medico.getEspecialidade());
 
             repositoryMedico.save(medUpdate);
 
-            return ResponseEntity.ok("Escala Atualizada");
+            return ResponseEntity.ok("Medico Atualizado");
         } else {
-            return ResponseEntity.ok("Não possui nenhuma escala com este id.");
+            return ResponseEntity.ok("Não possui nenhuma Medico com este id.");
         }
     }
 
