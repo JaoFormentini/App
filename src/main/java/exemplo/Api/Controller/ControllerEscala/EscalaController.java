@@ -53,6 +53,7 @@ public EscalaRs findById(@PathVariable("id") Long id){
         esc.setDia(escala.getDia());
         esc.setHorainic(escala.getHorainic());
         esc.setHorafim(escala.getHorafim());
+        esc.setId_user_posto(esc.getId_user_posto());
 
         repositoryEscala.save(esc);
         return ResponseEntity.status(HttpStatus.CREATED).body("Escala Inserida com Sucesso!");
@@ -71,6 +72,7 @@ public EscalaRs findById(@PathVariable("id") Long id){
         escalaUpdate.setDia(Escala.getDia());
         escalaUpdate.setHorainic(Escala.getHorainic());
         escalaUpdate.setHorafim(Escala.getHorafim());
+        escalaUpdate.setId_user_posto(Escala.getId_uuser_posto());
 
         repositoryEscala.save(escalaUpdate);
         return ResponseEntity.ok("Escala Atualizada");

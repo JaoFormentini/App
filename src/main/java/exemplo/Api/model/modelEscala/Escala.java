@@ -31,6 +31,9 @@ public class Escala {
     @Column(name = "horafim")
     private String horafim;
 
+    @Column(name = "id_user_posto")
+    private Long id_user_posto;
+
     public Long getId() {
         return id;
     }
@@ -86,4 +89,13 @@ public class Escala {
     public void setNome(String nome) {
         this.nome = nome;
     }
+
+    public Long getId_user_posto() {
+        return id_user_posto;
+    }
+
+    public void setId_user_posto(Long id_user_posto) {
+        this.id_user_posto = id_user_posto;
+    }
+
 }

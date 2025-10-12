@@ -8,6 +8,7 @@ public class EscalaRq {
     private String dia;
     private String horainic;
     private String horafim;
+    private Long id_uuser_posto;
 
     public Long getId(){
         return  id;
@@ -64,4 +65,13 @@ public class EscalaRq {
     public void setHorafim(String horafim) {
         this.horafim = horafim;
     }
+
+    public Long getId_uuser_posto() {
+        return id_uuser_posto;
+    }
+
+    public void setId_uuser_posto(Long id_uuser_posto) {
+        this.id_uuser_posto = id_uuser_posto;
+    }
+
 }
