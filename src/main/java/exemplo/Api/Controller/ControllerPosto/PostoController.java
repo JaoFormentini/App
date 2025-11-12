@@ -33,19 +33,18 @@ public class PostoController {
 
     @GetMapping("/posto/cnpj/{cnpj}")
     public PostoRs findByCnpj(@PathVariable("cnpj") String cnpj) {
-
         var post = repositoryPosto.findByCnpj(cnpj);
 
         if (post.isPresent()) {
             var posto = post.get();
             return PostoRs.converter(posto);
         } else {
-//            CORRIGIR ERRO DE NAO LANÇAR O ERRO QUANDO NAO ENCONTRA O MEDICO
-            throw new ResponseStatusException(HttpStatus.NOT_FOUND, "Não há medico com esse id");
+//            CORRIGIR ERRO DE NAO LANÇAR O ERRO QUANDO NAO ENCONTRA O posto
+            throw new ResponseStatusException(HttpStatus.NOT_FOUND, "Não há Posto com esse CNPJ");
         }
     }
 
-    @PostMapping("/Posto/post")
+    @PostMapping("/posto/post")
     public ResponseEntity<String> SavePosto(@RequestBody PostoRq Posto) {
         var post = new Posto();
 
@@ -82,7 +81,6 @@ public class PostoController {
 
     @DeleteMapping("/posto/{cnpj}")
     public ResponseEntity<String> deletePosto(@PathVariable String cnpj) {
-
         var post = repositoryPosto.findByCnpj(cnpj);
 
         if(post.isPresent()) {

@@ -14,6 +14,8 @@ public class PostoRs {
         posto.setNome(post.getNome());
         posto.setEndereco(post.getEndereco());
         posto.setHorario_atendimento(post.getHorario_atendimento());
+
+        return posto;
     }
 
     public String getCnpj() {
