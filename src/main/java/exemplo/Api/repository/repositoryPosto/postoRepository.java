@@ -7,5 +7,6 @@ import java.util.Optional;
 
 @Repository
 public interface postoRepository extends JpaRepository<Posto, Long> {
-    Optional<Posto> findByCnpj (String cnpj);
+    Optional<Posto> findByCnpj(String cnpj);
+    void deleteByCnpj (String cnpj);
 }

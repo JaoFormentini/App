@@ -9,5 +9,4 @@ import java.util.Optional;
 public interface medicoRepository extends JpaRepository<Medico, Long> {
     Optional<Medico> findBycrm (String crm);
     void deleteBycrm (String crm);
-
 }

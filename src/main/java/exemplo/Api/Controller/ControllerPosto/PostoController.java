@@ -1,7 +1,10 @@
-package exemplo.Api.Controller.ControllerPosto.;
+package exemplo.Api.Controller.ControllerPosto;
 
 
+import exemplo.Api.Controller.ControllerPosto.dto.PostoRq;
 import exemplo.Api.Controller.ControllerPosto.dto.PostoRs;
+import exemplo.Api.Service.PostoService;
+import exemplo.Api.model.modelPosto.Posto;
 import exemplo.Api.repository.repositoryPosto.postoRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -30,7 +33,8 @@ public class PostoController {
 
     @GetMapping("/posto/cnpj/{cnpj}")
     public PostoRs findByCnpj(@PathVariable("cnpj") String cnpj) {
-        var post = postoRepository.findByCnpj(cnpj);
+
+        var post = repositoryPosto.findByCnpj(cnpj);
 
         if (post.isPresent()) {
             var posto = post.get();
@@ -41,51 +45,52 @@ public class PostoController {
         }
     }
 
-    @PostMapping("/medico/post")
-    public ResponseEntity<String> SaveMedico(@RequestBody MedicoRq Medico) {
-        var med = new Medico();
+    @PostMapping("/Posto/post")
+    public ResponseEntity<String> SavePosto(@RequestBody PostoRq Posto) {
+        var post = new Posto();
 
-        med.setNome(Medico.getNome());
-        med.setCrm(Medico.getCrm());
-        med.setEspecialidade(Medico.getEspecialidade());
+        post.setCnpj(Posto.getCnpj());
+        post.setNome(Posto.getNome());
+        post.setEndereco(Posto.getEndereco());
+        post.setHorario_atendimento(Posto.getHorario_atendimento());
 
-        repositoryMedico.save(med);
-        return ResponseEntity.status(HttpStatus.CREATED).body("Medico inserido com sucesso!");
+        repositoryPosto.save(post);
+        return ResponseEntity.status(HttpStatus.CREATED).body("Posto inserido com sucesso!");
     }
 
-    @PutMapping("/medico/crm/{crm}")
-    public ResponseEntity<String> updateMed(@PathVariable("crm") String crm, @RequestBody MedicoRq Medico) throws Exception{
-        var med = repositoryMedico.findBycrm(crm);
+    @PutMapping("/posto/cnpj/{cnpj}")
+    public ResponseEntity<String> updatePost(@PathVariable("cnpj") String cnpj, @RequestBody PostoRq Posto) throws Exception{
+        var post = repositoryPosto.findByCnpj(cnpj);
 
-        if (med.isPresent()) {
-            var medUpdate = med.get();
+        if (post.isPresent()) {
+            var postoUpdate = post.get();
 
-            medUpdate.setNome(Medico.getNome());
-            medUpdate.setCrm(Medico.getCrm());
-            medUpdate.setEspecialidade(Medico.getEspecialidade());
+            postoUpdate.setNome(Posto.getNome());
+            postoUpdate.setEndereco(Posto.getEndereco());
+            postoUpdate.setHorario_atendimento(Posto.getHorario_atendimento());
 
-            repositoryMedico.save(medUpdate);
+            repositoryPosto.save(postoUpdate);
 
-            return ResponseEntity.ok("Medico Atualizado");
+            return ResponseEntity.ok("Posto Atualizado");
         } else {
-            return ResponseEntity.ok("Não possui nenhuma Medico com este id.");
+            return ResponseEntity.ok("Não possui nenhuma Posto com este Cnpj.");
         }
     }
 
     @Autowired
-    private MedicoService medicoService;
+    private PostoService postoService;
 
-    @DeleteMapping("/medico/crm/{crm}")
-    public ResponseEntity<?> deleteBycrm(@PathVariable String crm) {
+    @DeleteMapping("/posto/{cnpj}")
+    public ResponseEntity<String> deletePosto(@PathVariable String cnpj) {
 
-        var med = repositoryMedico.findBycrm(crm);
+        var post = repositoryPosto.findByCnpj(cnpj);
 
-        if(med.isPresent()) {
-            medicoService.deleteBycrm(crm);
-            return ResponseEntity.ok("Medico removido");
+        if(post.isPresent()) {
+            repositoryPosto.deleteByCnpj(cnpj);
+            return ResponseEntity.ok("Unidade deletada com sucesso!");
         }
         else {
-            return ResponseEntity.ok("Nao foi possivel deletar, Medico nao encontrada");
+            return ResponseEntity.ok("Nao foi possivel deletar, CNPJ da unidade nao encontrado");
         }
     }
 }

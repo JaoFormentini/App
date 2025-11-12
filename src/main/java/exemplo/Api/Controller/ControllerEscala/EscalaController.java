@@ -71,7 +71,7 @@ public EscalaRs findById(@PathVariable("id") Long id){
         escalaUpdate.setDia(Escala.getDia());
         escalaUpdate.setHorainic(Escala.getHorainic());
         escalaUpdate.setHorafim(Escala.getHorafim());
-        escalaUpdate.setId_user_posto(Escala.getId_uuser_posto());
+        escalaUpdate.setId_user_posto(Escala.getId_user_posto());
 
         repositoryEscala.save(escalaUpdate);
         return ResponseEntity.ok("Escala Atualizada");
