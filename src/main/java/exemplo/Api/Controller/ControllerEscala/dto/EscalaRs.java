@@ -4,7 +4,7 @@ import exemplo.Api.model.modelEscala.Escala;
 
 public class EscalaRs {
     private Long id;
-    private Long id_medico;
+    private Long crm;
     private String nome;
     private String especialidade;
     private String dia;
@@ -15,7 +15,7 @@ public class EscalaRs {
     public static EscalaRs converter(Escala e){
         var  escala =  new EscalaRs();
         escala.setId(e.getId());
-        escala.setId_medico(e.getId_medico());
+        escala.setCrm(e.getCrm());
         escala.setNome(e.getNome());
         escala.setEspecialidade(e.getEspecialidade());
         escala.setDia(e.getDia());
@@ -34,12 +34,12 @@ public class EscalaRs {
         this.id = id;
     }
 
-    public Long getId_medico() {
-        return id_medico;
+    public Long getCrm() {
+        return crm;
     }
 
-    public void setId_medico(Long id_medico) {
-        this.id_medico = id_medico;
+    public void setCrm(Long crm) {
+        this.crm = crm;
     }
 
     public String getNome() {

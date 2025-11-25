@@ -12,7 +12,6 @@ import org.springframework.web.server.ResponseStatusException;
 import java.util.List;
 import java.util.stream.Collectors;
 
-
 @RestController
 @RequestMapping("/app")
 public class EscalaController {
@@ -46,7 +45,7 @@ public EscalaRs findById(@PathVariable("id") Long id){
     public ResponseEntity<String> SaveEscala(@RequestBody EscalaRq escala){
         var esc = new Escala();
 
-        esc.setId_medico(escala.getId_medico());
+        esc.setCrm(escala.getCrm());
         esc.setNome(escala.getNome());
         esc.setEspecialidade(escala.getEspecialidade());
         esc.setDia(escala.getDia());
@@ -65,7 +64,7 @@ public EscalaRs findById(@PathVariable("id") Long id){
     if (esc.isPresent()) {
         var escalaUpdate = esc.get();
 
-        escalaUpdate.setId_medico(Escala.getId_medico());
+        escalaUpdate.setCrm(Escala.getCrm());
         escalaUpdate.setNome(Escala.getNome());
         escalaUpdate.setEspecialidade(Escala.getEspecialidade());
         escalaUpdate.setDia(Escala.getDia());

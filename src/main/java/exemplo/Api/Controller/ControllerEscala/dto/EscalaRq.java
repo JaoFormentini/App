@@ -2,7 +2,7 @@ package exemplo.Api.Controller.ControllerEscala.dto;
 
 public class EscalaRq {
     private Long id;
-    private Long id_medico;
+    private Long crm;
     private String nome;
     private String especialidade;
     private String dia;
@@ -18,12 +18,12 @@ public class EscalaRq {
         this.id = id;
     }
 
-    public Long getId_medico(){
-        return  id_medico;
+    public Long getCrm(){
+        return  crm;
     }
 
-    public void setId_medico(Long id_medico){
-        this.id_medico = id_medico;
+    public void setCrm(Long crm){
+        this.crm = crm;
     }
 
     public String getNome() {

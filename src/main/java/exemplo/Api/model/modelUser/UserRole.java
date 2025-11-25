@@ -2,6 +2,7 @@ package exemplo.Api.model.modelUser;
 
 public enum UserRole {
     ADMIN("admin"),
+    MANEGER("maneger"),
     USER("user");
 
     private String role;

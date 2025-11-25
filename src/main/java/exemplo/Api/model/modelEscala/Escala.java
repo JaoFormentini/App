@@ -13,8 +13,8 @@ public class Escala {
     @Column(name = "id")
     private Long id;
 
-    @Column(name = "id_medico")
-    private Long id_medico;
+    @Column(name = "crm")
+    private Long crm;
 
     @Column(name = "nome")
     private String nome;
@@ -42,12 +42,12 @@ public class Escala {
         this.id = id;
     }
 
-    public Long getId_medico() {
-        return id_medico;
+    public Long getCrm() {
+        return crm;
     }
 
-    public void setId_medico(Long id_medico) {
-        this.id_medico = id_medico;
+    public void setCrm(Long crm) {
+        this.crm = crm;
     }
 
     public String getHorafim() {
