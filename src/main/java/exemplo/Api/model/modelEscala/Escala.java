@@ -14,7 +14,7 @@ public class Escala {
     private Long id;
 
     @Column(name = "crm")
-    private Long crm;
+    private String crm;
 
     @Column(name = "nome")
     private String nome;
@@ -42,11 +42,11 @@ public class Escala {
         this.id = id;
     }
 
-    public Long getCrm() {
+    public String getCrm() {
         return crm;
     }
 
-    public void setCrm(Long crm) {
+    public void setCrm(String crm) {
         this.crm = crm;
     }
 
